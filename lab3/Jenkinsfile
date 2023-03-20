@@ -2,17 +2,13 @@ pipeline {
     agent any
     stages {
         stage('Install dependencies') {
-            agent { //here we select only docker build agents
+            agent {
                 docker {
                     image 'maven:latest' //container will start from this image
-                    args '-v /root/.m2:/root/.m2' //here you can map local maven repo, this let you to reuse local artifacts
                 }
                     }
             steps {
-                sh 'mvn -version'
-                sh 'ls -la'
-                echo "here"
-                //sh 'mvn install:install-file -Dfile=lab3/libs/Simulation2022.jar -DgroupId=com.simulation -DartifactId=simulation -Dversion=1.0.0 -Dpackaging=jar'
+                sh 'cd lab3 && mvn install:install-file -Dfile=lab3/libs/Simulation2022.jar -DgroupId=com.simulation -DartifactId=simulation -Dversion=1.0.0 -Dpackaging=jar'
             }
         }
 

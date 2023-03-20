@@ -19,12 +19,8 @@ pipeline {
         }
         
         stage('Push jar') {
-            agent {
-                docker {
-                    image 'ubuntu'
-                }
-            }
             steps {
+                sh 'apt-get -y install openssh-clients'
                 sh 'scp'
             }
         }

@@ -19,6 +19,9 @@ pipeline {
         }
         
         stage('Push jar') {
+            agent {
+                image 'alpine'
+            }
             steps {
                 sh 'scp'
             }

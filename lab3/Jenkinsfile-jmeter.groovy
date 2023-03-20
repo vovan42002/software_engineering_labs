@@ -3,9 +3,9 @@ pipeline {
     stages {
       stage('jmeter test') {
         agent {
-          dockerfile {
-            filename 'lab3/Dockerfile.jmeter'
-          }
+            docker {
+                image 'vovan4/jmeter_base:latest'
+            }
         }
         steps {
           sh 'cd /bin'

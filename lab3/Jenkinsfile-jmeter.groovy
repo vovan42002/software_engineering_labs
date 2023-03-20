@@ -10,7 +10,7 @@ pipeline {
         steps {
           sh 'jmeter -n -t JMeter-Sample/JMeter-load-test.jmx -JThreadNumber=10 -JRampUpPeriod=1 -Jiterations=10 -l results.csv -e -o /result_output'
         }
-      }_
+      }
         stage('Install dependencies') {
             agent {
               docker {

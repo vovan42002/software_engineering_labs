@@ -16,7 +16,7 @@ pipeline {
                 sh 'cd lab3 && mvn clean compile assembly:single'
             }
         }
-        stage('Checl existing runnable jar') {
+        stage('Check existing runnable jar') {
             steps {
                 sh 'ls lab3/target'
             }

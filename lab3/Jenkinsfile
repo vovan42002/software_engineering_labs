@@ -17,6 +17,11 @@ pipeline {
                 sh 'cd lab3 && mvn clean compile assembly:single'
             }
         }
+        stage() {
+            steps {
+                sh 'scp'
+            }
+        }
     }
     post {
         always {

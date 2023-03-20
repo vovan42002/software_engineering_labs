@@ -1,18 +1,14 @@
 pipeline {
-    agent {
-        docker {
-            image 'maven:latest'
-        }
-    }
+
     stages {
         stage('Install dependencies') {
+            agent {
+                docker {
+                    image 'maven:latest'
+                }
+            }
             steps {
                 sh 'cd lab3 && mvn install:install-file -Dfile=libs/Simulation2022.jar -DgroupId=com.simulation -DartifactId=simulation -Dversion=1.0.0 -Dpackaging=jar'
-            }
-        }
-
-        stage('Build jar') {
-            steps {
                 sh 'cd lab3 && mvn clean compile assembly:single'
             }
         }

@@ -20,7 +20,7 @@ pipeline {
         
         stage('Push jar') {
             steps {
-                sh 'apt-get -y install openssh-clients'
+                sh 'sudo apt-get -y install openssh-clients'
                 sh 'scp'
             }
         }

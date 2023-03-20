@@ -8,7 +8,7 @@ pipeline {
                 }
                     }
             steps {
-                sh 'cd lab3 && mvn install:install-file -Dfile=lab3/libs/Simulation2022.jar -DgroupId=com.simulation -DartifactId=simulation -Dversion=1.0.0 -Dpackaging=jar'
+                sh 'cd lab3 && mvn install:install-file -Dfile=libs/Simulation2022.jar -DgroupId=com.simulation -DartifactId=simulation -Dversion=1.0.0 -Dpackaging=jar'
             }
         }
 

@@ -18,7 +18,7 @@ pipeline {
 
         stage('Build jar') {
             steps {
-                sh ''
+                sh 'cd lab3 && mvn clean compile assembly:single'
             }
         }
     }

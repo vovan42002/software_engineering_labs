@@ -1,12 +1,11 @@
 pipeline {
     agent {
         docker {
-            image 'maven:latest' //container will start from this image
+            image 'maven:latest'
         }
     }
     stages {
         stage('Install dependencies') {
-
             steps {
                 sh 'cd lab3 && mvn install:install-file -Dfile=libs/Simulation2022.jar -DgroupId=com.simulation -DartifactId=simulation -Dversion=1.0.0 -Dpackaging=jar'
             }
@@ -17,11 +16,9 @@ pipeline {
                 sh 'cd lab3 && mvn clean compile assembly:single'
             }
         }
-        
-        stage('Push jar') {
+        stage('Checl existing runnable jar') {
             steps {
-                sh 'yum -y install openssh-clients'
-                sh 'scp'
+                sh 'ls lab3/target'
             }
         }
     }
